@@ -111,7 +111,7 @@
 * Compiler is not case-sensitive.
 * ORG directive specifies the loading offset.
 * Arrays are stored sequentially in memory.
-<br>
+--
 * **Compiler conversion:** 
   * The compiler converts program source code into a set of bytes called machine code.
 * **ORG directive:** 
