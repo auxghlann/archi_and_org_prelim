@@ -14,14 +14,14 @@
 
 ## Inside the CPU
 ### General Purpose Registers
-* **AX:** Accumulator register (AH/AL).
-* **BX:** Base address register (BH/BL).
-* **CX:** Count register (CH/CL).
-* **DX:** Data register (DH/DL).
-* **SI:** Source index register.
-* **DI:** Destination index register.
-* **BP:** Base pointer.
-* **SP:** Stack pointer.
+* **`AX`:** Accumulator register (AH/AL).
+* **`BX`:** Base address register (BH/BL).
+* **`CX`:** Count register (CH/CL).
+* **`DX`:** Data register (DH/DL).
+* **`SI`:** Source index register.
+* **`DI`:** Destination index register.
+* **`BP`:** Base pointer.
+* **`SP`:** Stack pointer.
 
 ## Registers
 
@@ -31,10 +31,10 @@
 * **Example:** 0011000000111001b (binary) or 12345 (decimal).
 
 ### Registers with 8-bit Sub-registers
-* **AX:** AH and AL
-* **BX:** BH and BL
-* **CX:** CH and CL
-* **DX:** DH and DL
+* **`AX`:** AH and AL
+* **`BX`:** BH and BL
+* **`CX`:** CH and CL
+* **`DX`:** DH and DL
 
 ### Example
 * If AX = 0011000000111001b, then AH = 00110000b and AL = 00111001b.
@@ -49,27 +49,46 @@
 * Many registers have specific purposes, limiting their use as variables.
 * Registers are ideal for temporary data storage during calculations.
 
+## Segment Registers
+
 ### Segment Registers
-* **CS:** Points to the code segment.
-* **DS:** Points to the data segment.
-* **ES:** Extra segment register.
-* **SS:** Points to the stack segment.
+* **`CS`:** Points to the code segment.
+* **`DS`:** Points to the data segment.
+* **`ES`:** Extra segment register.
+* **`SS`:** Points to the stack segment.
+
+### Segment Registers and Effective Addresses
+
+* Segment registers Point to accessible memory blocks.
+* *Not for data storage:* Segment registers are not suitable for storing arbitrary data.
+* **`Effective addresses`:** 
+  * Formed by combining segment and general-purpose registers.
+
+* **Default pairings:**
+    * BX, SI, DI: DS
+    * BP, SP: SS
+* **Valid registers:** 
+  * Only certain general-purpose registers can form effective addresses (e.g., BX, SI, DI).
+* **Sub-registers:** 
+  * Sub-registers (like BH, BL) cannot form effective addresses.
 
 ### Special Purpose Registers
-* **IP:** Instruction pointer.
-* **Flags Register:** Indicates the current state of the microprocessor.
+* **`IP`:** Instruction pointer.
+* **`Flags Register`:** Indicates the current state of the microprocessor.
 
 ## Memory Access
 * Uses BX, SI, DI, and BP registers.
 
 ## Data Types
-* **byte ptr:** For byte.
-* **word ptr:** For word (two bytes).
+* **`byte ptr`:** For byte.
+* **`word ptr`:** For word (two bytes).
 * Shorter prefixes: `b.` and `w.`.
 
 ## MOV Instruction
 * Copies the second operand to the first.
-* Supports various operand types.
+* Supports various operand types: immediate values, registers, memory locations.
+* Both operands must be the same size (byte or word).
+
 * Cannot set CS or IP registers.
 
 ## Variables
@@ -92,3 +111,13 @@
 * Compiler is not case-sensitive.
 * ORG directive specifies the loading offset.
 * Arrays are stored sequentially in memory.
+<br>
+* **Compiler conversion:** 
+  * The compiler converts program source code into a set of bytes called machine code.
+* **ORG directive:** 
+  * Specifies how the compiler should handle the source code.
+    * Sets the loading offset for the executable file (e.g., 100h).
+    * Helps calculate correct variable addresses.
+* **Loading offset:**
+    * **COM files**: **`100h`** (256 bytes) to avoid overwriting operating system data.
+    * **EXE files**: **`0000h`** and typically use a separate segment for variables.
