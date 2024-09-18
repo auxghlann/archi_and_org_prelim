@@ -74,6 +74,8 @@
 
 ### Special Purpose Registers
 * **`IP`:** Instruction pointer.
+ * register always works together with CS segment register
+ * it points to currently executing instruction.
 * **`Flags Register`:** Indicates the current state of the microprocessor.
 
 ## Memory Access
