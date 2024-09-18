@@ -53,7 +53,7 @@
 
 ### Segment Registers
 * **`CS`:** Points to the code segment.
-* **`DS`:** Points to the data segment.
+* **`DS`:** Points to the data or variable segment.
 * **`ES`:** Extra segment register.
 * **`SS`:** Points to the stack segment.
 
