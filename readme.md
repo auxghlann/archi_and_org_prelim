@@ -73,10 +73,15 @@
   * Sub-registers (like BH, BL) cannot form effective addresses.
 
 ### Special Purpose Registers
-* **`IP`:** Instruction pointer.
+#### **`IP`:** 
+ * Instruction pointer.
  * register always works together with CS segment register
  * it points to currently executing instruction.
-* **`Flags Register`:** Indicates the current state of the microprocessor.
+#### **`Flags Register`:** 
+ * Indicates the current state of the microprocessor.
+ * modified automatically by CPU after mathematical operations, this allows to determine the type of the resul
+ * determine conditions to transfer control to other parts of the program.
+ * generally you cannot access these registers directly
 
 ## Memory Access
 * Uses BX, SI, DI, and BP registers.
