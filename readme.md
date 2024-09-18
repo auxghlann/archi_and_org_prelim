@@ -84,8 +84,8 @@
  * generally you cannot access these registers directly
 
 ## Memory Access
-* Uses BX, SI, DI, and BP registers.
-
+* **segment** - value in segment register (CS, DS, ES, SS)
+* **offset** - value in purpose register (BX, SI, DI, BP)
 ## Data Types
 * **`byte ptr`:** For byte.
 * **`word ptr`:** For word (two bytes).
